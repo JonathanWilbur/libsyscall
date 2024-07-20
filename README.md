@@ -11,7 +11,9 @@ Instead of producing a separate function for every system call, this library
 defines functions that take a system call number, followed by a fixed number
 of arguments. The system call number, and the arguments are placed in the
 correct registers by this function, and the system call is then triggered,
-and its return code returned directly to the caller.
+and its return code returned directly to the caller. (Yes, I know, this is
+not the most performant way of doing it, but it produces smaller, simpler
+code.)
 
 `syscall-x86-64.s` contains this minimal amount of assembly on Linux on the
 x86-64 instruction set architecture. Pull requests are welcome to implement
