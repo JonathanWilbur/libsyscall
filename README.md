@@ -26,7 +26,7 @@ this in other ISAs, and maybe even Windows or Mac (why not?).
 
 My interest in this is for bootstrapping. This is so little assembly that you
 could inspect the ELF file and understand it entirely. This can be linked with
-hyper-minmal C programs to produce hyper-minimal compilers and other build
+hyper-minimal C programs to produce hyper-minimal compilers and other build
 tools with the minimal ability to read and write files.
 
 ## Usage
