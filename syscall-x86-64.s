@@ -1,7 +1,7 @@
 # This will only work on Linux on the x86-64 ISA.
 #
 # Copyright 2024 (c) Jonathan M. Wilbur. Released under an MIT License.
-# 
+#
 # Example compilation:
 #
 # ```bash
@@ -9,8 +9,21 @@
 # ```
 
 # Export the symbols so they can be linked.
+.globl syscall0
 .globl syscall1
+.globl syscall2
 .globl syscall3
+.globl syscall4
+.globl syscall5
+
+# Perform a Linux system call with two arguments.
+syscall0:
+    # The first argument becomes the syscall number.
+    mov %rdi, %rax
+    # Then we perform the system call.
+    syscall
+    # Then we return.
+    ret
 
 # Perform a Linux system call with one argument.
 syscall1:
