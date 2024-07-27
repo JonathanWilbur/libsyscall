@@ -20,7 +20,10 @@ x86-64 instruction set architecture. Pull requests are welcome to implement
 this in other ISAs, and maybe even Windows or Mac (why not?).
 
 `example.c` is an example usage of this syscalls library. It just reads from
-`stdin` and echoes it to `stdout`.
+`stdin` and echoes it to `stdout`. `example-sleep.c` is another example that was
+tailored to test the ability to invoke a system call that uses six parameters,
+which has special significance, because the sixth parameter requires a slightly
+different technique. All `example-sleep.c` does is sleep for five seconds.
 
 ## Purpose
 

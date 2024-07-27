@@ -15,6 +15,7 @@
 .globl syscall3
 .globl syscall4
 .globl syscall5
+.globl syscall6
 
 # Perform a Linux system call with two arguments.
 syscall0:
@@ -99,6 +100,27 @@ syscall5:
     mov %r8, %r10
     # The sixth argument (r9) becomes the fifth argument (r8)
     mov %r9, %r8
+    # Then we perform the system call.
+    syscall
+    # Then we return.
+    ret
+
+# Perform a Linux system call with six arguments.
+syscall6:
+    # The first argument becomes the syscall number.
+    mov %rdi, %rax
+    # The second argument (rsi) becomes the first argument (rdi).
+    mov %rsi, %rdi
+    # The third argument (rdx) becomes the second argument (rsi).
+    mov %rdx, %rsi
+    # The fourth argument (rcx) becomes the third argument (rdx).
+    mov %rcx, %rdx
+    # The fifth argument (r8) becomes the fourth argument (r10)
+    mov %r8, %r10
+    # The sixth argument (r9) becomes the fifth argument (r8)
+    mov %r9, %r8
+    # The seventh argument (on the stack) becomes the sixth argument (r9)
+    mov (8 * 1 + 8 * 6)(%rsp), %r9
     # Then we perform the system call.
     syscall
     # Then we return.
