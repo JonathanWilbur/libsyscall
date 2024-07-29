@@ -28,12 +28,28 @@ syscall0:
 
 # Perform a Linux system call with one argument.
 syscall1:
+    # Create a new stack frame by saving the old base pointer and setting the
+    # base pointer register to the value of the stack pointer register.
+    push %rbp
+    mov %rsp, %rbp
+
+    # Since RDI gets moved to RAX then overwritten, and RAX gets clobbered, we
+    # have to save the original value of RDI to the stack.
+    push %rdi
+
     # The first argument becomes the syscall number.
     mov %rdi, %rax
     # The second argument (rsi) becomes the first argument (rdi).
     mov %rsi, %rdi
     # Then we perform the system call.
     syscall
+
+    # Reverse the above register shifts.
+    mov %rdi, %rsi
+    pop %rdi
+
+    # Undo the stack frame.
+    leaveq
     # Then we return.
     retq
 
@@ -52,6 +68,15 @@ syscall2:
 
 # Perform a Linux system call with three arguments.
 syscall3:
+    # Create a new stack frame by saving the old base pointer and setting the
+    # base pointer register to the value of the stack pointer register.
+    push %rbp
+    mov %rsp, %rbp
+
+    # Since RDI gets moved to RAX then overwritten, and RAX gets clobbered, we
+    # have to save the original value of RDI to the stack.
+    push %rdi
+
     # The first argument becomes the syscall number.
     mov %rdi, %rax
     # The second argument (rsi) becomes the first argument (rdi).
@@ -66,6 +91,13 @@ syscall3:
     mov %rcx, %rdx
     # Then we perform the system call.
     syscall
+
+    # Reverse the above register shifts.
+    mov %rdi, %rsi
+    pop %rdi
+
+    # Undo the stack frame.
+    leaveq
     # Then we return.
     retq
 

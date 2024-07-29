@@ -1,5 +1,9 @@
 # libsyscall
 
+> [!WARNING]  
+> This is very much a work in progress. I am still experimenting with this.
+> Once it works, I'll create a release and sign it with my PGP key.
+
 This repo contains the bare minimum assembly to be able to make system calls.
 Most C standard libraries use GCC inline assembly to implement system calls,
 and this is a problem for portability: you _have_ to use GCC to compile them.
