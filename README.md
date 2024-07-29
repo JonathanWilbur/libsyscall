@@ -54,3 +54,7 @@ echo 'asdfasdf' | ./yeet
 
 You should see `asdfasdf` echoed to your console.
 
+## Miscellaneous
+
+`gnu-asm.c` is an extraneous program for seeing what normal inline assembly
+looks like when compiled with GCC.

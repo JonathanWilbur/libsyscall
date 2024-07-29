@@ -24,7 +24,7 @@ syscall0:
     # Then we perform the system call.
     syscall
     # Then we return.
-    ret
+    retq
 
 # Perform a Linux system call with one argument.
 syscall1:
@@ -35,7 +35,7 @@ syscall1:
     # Then we perform the system call.
     syscall
     # Then we return.
-    ret
+    retq
 
 # Perform a Linux system call with two arguments.
 syscall2:
@@ -48,7 +48,7 @@ syscall2:
     # Then we perform the system call.
     syscall
     # Then we return.
-    ret
+    retq
 
 # Perform a Linux system call with three arguments.
 syscall3:
@@ -67,7 +67,7 @@ syscall3:
     # Then we perform the system call.
     syscall
     # Then we return.
-    ret
+    retq
 
 # Perform a Linux system call with four arguments.
 syscall4:
@@ -84,7 +84,7 @@ syscall4:
     # Then we perform the system call.
     syscall
     # Then we return.
-    ret
+    retq
 
 # Perform a Linux system call with five arguments.
 syscall5:
@@ -103,7 +103,7 @@ syscall5:
     # Then we perform the system call.
     syscall
     # Then we return.
-    ret
+    retq
 
 # Perform a Linux system call with six arguments.
 syscall6:
@@ -124,5 +124,4 @@ syscall6:
     # Then we perform the system call.
     syscall
     # Then we return.
-    ret
-
+    retq
