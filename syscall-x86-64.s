@@ -92,8 +92,10 @@ syscall3:
     # Then we perform the system call.
     syscall
 
-    # Reverse the above register shifts.
+    mov %rdx, %rcx
+    mov %rsi, %rdx
     mov %rdi, %rsi
+    # Reverse the above register shifts.
     pop %rdi
 
     # Undo the stack frame.
