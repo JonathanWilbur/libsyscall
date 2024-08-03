@@ -113,7 +113,7 @@ syscall4:
     mov %rdx, %rsi
     # The fourth argument (rcx) becomes the third argument (rdx).
     mov %rcx, %rdx
-    # The fifth argument (r8) becomes the fourth argument (r10)
+    # The fifth argument (r8) becomes the fourth argument (r10).
     mov %r8, %r10
     # Then we perform the system call.
     syscall
@@ -130,9 +130,9 @@ syscall5:
     mov %rdx, %rsi
     # The fourth argument (rcx) becomes the third argument (rdx).
     mov %rcx, %rdx
-    # The fifth argument (r8) becomes the fourth argument (r10)
+    # The fifth argument (r8) becomes the fourth argument (r10).
     mov %r8, %r10
-    # The sixth argument (r9) becomes the fifth argument (r8)
+    # The sixth argument (r9) becomes the fifth argument (r8).
     mov %r9, %r8
     # Then we perform the system call.
     syscall
@@ -149,16 +149,15 @@ syscall6:
     mov %rdx, %rsi
     # The fourth argument (rcx) becomes the third argument (rdx).
     mov %rcx, %rdx
-    # The fifth argument (r8) becomes the fourth argument (r10)
+    # The fifth argument (r8) becomes the fourth argument (r10).
     mov %r8, %r10
-    # The sixth argument (r9) becomes the fifth argument (r8)
+    # The sixth argument (r9) becomes the fifth argument (r8).
     mov %r9, %r8
-    # The seventh argument (on the stack) becomes the sixth argument (r9)
-    # Since we do not create a stack frame, this is located at %rsp + 16.
+    # The seventh argument (on the stack) becomes the sixth argument (r9).
+    # Since we do not create a stack frame, this is located at %rsp + 8.
     # The first eight bytes after %rsp are the return address, which is why we
-    # skip ahead to %rsp + 16.
-    popq %r9
-    pushq %r9
+    # skip ahead to %rsp + 8.
+    mov 0x8(%rsp), %r9
     # Then we perform the system call.
     syscall
     # Then we return.
