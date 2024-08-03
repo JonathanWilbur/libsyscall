@@ -154,7 +154,10 @@ syscall6:
     # The sixth argument (r9) becomes the fifth argument (r8)
     mov %r9, %r8
     # The seventh argument (on the stack) becomes the sixth argument (r9)
-    mov (8 * 1 + 8 * 6)(%rsp), %r9
+    # Since we do not create a stack frame, this is located at %rsp + 16.
+    # The first eight bytes after %rsp are the return address, which is why we
+    # skip ahead to %rsp + 16.
+    mov (16)(%rsp), %r9
     # Then we perform the system call.
     syscall
     # Then we return.
